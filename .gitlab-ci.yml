@@ -33,9 +33,6 @@ deploy:
   stage: deploy
   script:
     - git remote add heroku https://paulushc:$HEROKU_KEY@git.heroku.com/ufscar-devops-paulushc2.git
-    - git config user.name "Paulo Gomes"
-    - git config user.email "$GITLAB_USER_EMAIL"
-    - git commit -m "Heroku Deploy"
     - git push heroku HEAD:master -f
   environment:
     name: producao
