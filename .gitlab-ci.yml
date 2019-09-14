@@ -14,24 +14,10 @@ stages:
   - artifact
   - deploy
 
-validate:
-  stage: validate
-  script:
-    - mvn $MAVEN_OPTS validate
-
-unit-test:
-  stage: test
-  script:
-    - mvn $MAVEN_OPTS test
-
-building:
-  stage: build
-  script:
-    - mvn $MAVEN_OPTS package
-
 deploy:
   stage: deploy
   script:
+    - git git show-ref
     - git remote add heroku https://paulushc:$HEROKU_KEY@git.heroku.com/ufscar-devops-paulushc2.git
     - git push heroku master -f
   environment:
