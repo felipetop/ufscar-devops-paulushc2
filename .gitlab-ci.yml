@@ -33,7 +33,7 @@ deploy:
   stage: deploy
   script:
     - git remote add heroku https://paulushc:$HEROKU_KEY@git.heroku.com/ufscar-devops-paulushc2.git
-    - git push heroku HEAD:master -f
+    - git push heroku master -f
   environment:
     name: producao
     url: https://ufscar-devops-paulushc2.herokuapp.com
