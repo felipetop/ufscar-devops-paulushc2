@@ -36,7 +36,7 @@ deploy:
     - git config user.name "Paulo Gomes"
     - git config user.email "$GITLAB_USER_EMAIL"
     - git commit -m "Heroku Deploy"
-    - git push heroku HEAD:master
+    - git push heroku HEAD:master -f
   environment:
     name: producao
     url: https://ufscar-devops-paulushc2.herokuapp.com
