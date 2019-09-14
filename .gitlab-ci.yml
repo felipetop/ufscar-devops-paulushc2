@@ -17,7 +17,7 @@ stages:
 deploy:
   stage: deploy
   script:
-    - git git show-ref
+    - git show-ref
     - git remote add heroku https://paulushc:$HEROKU_KEY@git.heroku.com/ufscar-devops-paulushc2.git
     - git push heroku master -f
   environment:
