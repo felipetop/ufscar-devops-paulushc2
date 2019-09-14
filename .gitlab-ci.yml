@@ -43,4 +43,3 @@ deploy:
     url: https://ufscar-devops-paulushc2.herokuapp.com
   only:
     - master
-  when: manual
