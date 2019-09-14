@@ -17,7 +17,7 @@ stages:
 deploy:
   stage: deploy
   before_script:
-    -git checkout master
+    - git checkout master
   script:
     - git show-ref
     - git remote add heroku https://paulushc:$HEROKU_KEY@git.heroku.com/ufscar-devops-paulushc2.git
