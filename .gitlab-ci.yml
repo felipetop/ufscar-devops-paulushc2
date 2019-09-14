@@ -10,7 +10,7 @@ stages:
 validate:
   stage: validate
   script:
-    - mvn validate
+    - mvn validatex
 
 unit-test:
   stage: test
