@@ -14,6 +14,22 @@ stages:
   - artifact
   - deploy
 
+validate:
+  stage: validate
+  script:
+    - mvn $MAVEN_OPTS validate
+
+unit-test:
+  stage: test
+  script:
+    - mvn $MAVEN_OPTS test
+
+building:
+  stage: build
+  script:
+    - mvn $MAVEN_OPTS package -DskipTests
+
+
 deploy:
   stage: deploy
   before_script:
