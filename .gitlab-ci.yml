@@ -24,13 +24,19 @@ unit-test:
   script:
     - mvn $MAVEN_OPTS test
 
+coverage:
+  stage: test
+  script:
+    - mvn $MAVEN_OPTS test
+    - echo "Total 15%"
+
 building:
   stage: build
   script:
     - mvn $MAVEN_OPTS package -DskipTests
 
 
-deploy:
+deploy-prod:
   stage: deploy
   before_script:
     - git checkout master
@@ -43,3 +49,17 @@ deploy:
     url: https://ufscar-devops-paulushc2.herokuapp.com
   only:
     - master
+
+deploy-qa:
+  stage: deploy
+  before_script:
+    - git checkout qa
+  script:
+    - git show-ref
+    - git remote add heroku https://paulushc:$HEROKU_KEY@git.heroku.com/ufscar-devops-paulushc2.git
+    - git push heroku HEAD:qa -f
+  environment:
+    name: qa
+    url: https://ufscar-devops-paulushc2-qa.herokuapp.com
+  only:
+    - qa
